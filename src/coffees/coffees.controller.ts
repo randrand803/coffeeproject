@@ -24,19 +24,19 @@ export class CoffeesController {
     @Get('/SolonaAPITest')
     async findSolonaAPITest(@Query() paginationQuery){
         //const response = await axios.get("https://api.solanabeach.io/v1/transaction/5xL5WLj5LjKKux5dNXPCjYqFVYANKxs6xeMygLK79wXy2BLw1xfiTBrJgV6A4hppZn55E37ucq1Dmp5inmrm1qVC")
-
-        const response = await axios.get("https://api.solanabeach.io/v1/transaction/4RDMXa51ieGLpBLLR8m25YjgNyWpZLogCQfcaf4GjXzjPR8bmdSfLpzU1G8x2DmsaESiXGtQzSamM2MUSkq5LXne")
-       
-
+       //BTC
+       // const response = await axios.get("https://api.solanabeach.io/v1/transaction/4RDMXa51ieGLpBLLR8m25YjgNyWpZLogCQfcaf4GjXzjPR8bmdSfLpzU1G8x2DmsaESiXGtQzSamM2MUSkq5LXne")
+        const response = await axios.get("https://api.solanabeach.io/v1/transaction/2Dfmemn9MXyPYAEsckD5q5vkZiRYWi64Av1wcacDhC6iAHhdkApF9DY2SXQ46feebo4Thi1vn82sJ6zZ6T2phzd6")
+        
         const postTokenBalances = response.data.meta.postTokenBalances as postTokenBalancesEntity[]
         postTokenBalances.forEach(element =>
             console.log(element.mint.name,element.mint.coingeckoId,element.uiTokenAmount.uiAmount)
             )
         
-        // const preTokenBalances = response.data.meta.preTokenBalances as preTokenBalancesEntity[]
-        // preTokenBalances.forEach(element =>
-        //     console.log(element.mint.name,element.mint.coingeckoId,element.uiTokenAmount.uiAmount)
-        //     )
+        const preTokenBalances = response.data.meta.preTokenBalances as preTokenBalancesEntity[]
+        preTokenBalances.forEach(element =>
+        console.log(element.mint.name,element.mint.coingeckoId,element.uiTokenAmount.uiAmount)
+        )
 
        
         //return `This action returns all coffees. Limit: ${limit}, offset: ${offset}`;
